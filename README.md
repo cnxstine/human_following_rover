@@ -1,14 +1,14 @@
 # Vision-Based Human Following Rover
 
-[![Rover CI Pipeline](https://github.com/your-username/human_following_rover/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/human_following_rover/actions/workflows/ci.yml)
+[![Rover CI Pipeline](https://github.com/cnxstine/human_following_rover/actions/workflows/ci.yml/badge.svg)](https://github.com/cnxstine/human_following_rover/actions/workflows/ci.yml)
 [![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 A portfolio-grade robotics project implementing a **Vision-Based Human Following Rover** optimized for Raspberry Pi OS (64-bit). The project features a hybrid object tracking pipeline (MobileNet SSD + OpenCV Correlation Filters) and an interactive 2D physics/camera simulator allowing developers to test and iterate on control loops directly on Windows, macOS, or Linux without physical hardware.
 
 ---
 
-## 🛠️ Hardware Requirements
+## Hardware Requirements
 
 * **SBC**: Raspberry Pi (Model 3B+, 4B, or 5 recommended) running Raspberry Pi OS (64-bit)
 * **Camera**: Raspberry Pi Camera Module v1.3 (OV5647 5MP) or compatible
@@ -19,7 +19,7 @@ A portfolio-grade robotics project implementing a **Vision-Based Human Following
 
 ---
 
-## ⚙️ GPIO Mapping
+## GPIO Mapping
 
 Detailed wiring diagrams and protection circuitry guides are available in [docs/hardware_setup.md](docs/hardware_setup.md).
 
@@ -51,7 +51,7 @@ Detailed wiring diagrams and protection circuitry guides are available in [docs/
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 * **Hybrid Tracking Pipeline**: Runs MobileNet SSD object detection to acquire target bounding boxes, then handsoff to OpenCV KCF tracking to achieve real-time (30 FPS) performance on low-power ARM CPUs, with periodic DNN drift correction.
 * **Dual-Controller System**: Implements a Proportional-Derivative (PD) controller for smooth yaw/steering adjustments and a Proportional (P) speed controller to regulate distance based on bounding box size.
@@ -62,7 +62,7 @@ Detailed wiring diagrams and protection circuitry guides are available in [docs/
 
 ---
 
-## 📐 Control Loop Mathematics
+## Control Loop Mathematics
 
 Detailed architecture and mathematics are documented in [docs/architecture.md](docs/architecture.md).
 
@@ -82,35 +82,35 @@ $$v(t) = K_{p\_speed} \cdot e_{\text{speed}}(t)$$
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
-```
-human_following_rover/
-├── requirements.txt           # Dependency listings
-├── config.py                 # Core configurations and pin assignments
-├── logger.py                 # Double-target logger (console, files, CSV metrics)
-├── main.py                   # Main loop & interactive 2D simulator
-├── motor_controller.py       # TB6612FNG driver (Physical/Mock)
-├── ultrasonic.py             # HC-SR04 ultrasonic interface & median filter
-├── camera_tracker.py         # Threaded camera & vision pipeline
-├── follow_controller.py      # PD controller & FSM state manager
-├── tests/                    # Unit tests package
-│   ├── test_motor_controller.py
-│   ├── test_follow_controller.py
-│   ├── test_state_machine.py
-│   └── test_ultrasonic.py
-├── docs/                     # Guides and architecture
-└── .github/workflows/        # CI pipelines
-```
+* [requirements.txt](requirements.txt) - Dependency listings
+* [config.py](config.py) - Core configurations and pin assignments
+* [logger.py](logger.py) - Double-target logger (console, files, CSV metrics)
+* [main.py](main.py) - Main loop & interactive 2D simulator
+* [motor_controller.py](motor_controller.py) - TB6612FNG driver (Physical/Mock)
+* [ultrasonic.py](ultrasonic.py) - HC-SR04 ultrasonic interface & median filter
+* [camera_tracker.py](camera_tracker.py) - Threaded camera & vision pipeline
+* [follow_controller.py](follow_controller.py) - PD controller & FSM state manager
+* [tests/](tests/) - Unit tests package
+  * [tests/test_motor_controller.py](tests/test_motor_controller.py)
+  * [tests/test_follow_controller.py](tests/test_follow_controller.py)
+  * [tests/test_state_machine.py](tests/test_state_machine.py)
+  * [tests/test_ultrasonic.py](tests/test_ultrasonic.py)
+* [docs/](docs/) - Guides and architecture documentation
+  * [docs/architecture.md](docs/architecture.md)
+  * [docs/hardware_setup.md](docs/hardware_setup.md)
+* [.github/workflows/](.github/workflows/) - CI pipelines
+  * [.github/workflows/ci.yml](.github/workflows/ci.yml)
 
 ---
 
-## 🏁 Quick Start
+## Quick Start
 
 ### 1. Installation
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/your-username/human_following_rover.git
+git clone https://github.com/cnxstine/human_following_rover.git
 cd human_following_rover
 pip install -r requirements.txt
 ```
@@ -139,7 +139,7 @@ python -m unittest discover -s tests
 
 ---
 
-## 📊 Telemetry Logging Format
+## Telemetry Logging Format
 
 CSV records saved inside `runs/` capture the following telemetry headers on every frame:
 * `timestamp`: ISO-8601 timestamp.
