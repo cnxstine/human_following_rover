@@ -193,8 +193,6 @@ class RoverSystem:
 
     def _update_simulation(self, dt):
         """Simulates differential drive physics and feeds virtual sensor/camera data."""
-        global sim_human_x, sim_human_y
-        
         # 1. Differential Drive Kinematics
         # Get speeds currently applied to simulated motors
         left_speed, right_speed = self.motor.get_speeds()
